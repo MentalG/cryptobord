@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./DashboardPage.scss";
+// import styles from "./DashboardPage.scss";
 import AddCoinArea from "../../components/AddCoinArea";
 import CoinListArea from "../../components/CoinListArea";
 

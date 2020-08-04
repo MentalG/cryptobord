@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useTransition, animated } from "react-spring";
+// import { useTransition, animated } from "react-spring";
 
 import "./CoinListArea.scss";
 
@@ -11,7 +11,6 @@ export default function CoinListArea() {
   const [coins, setCoins] = useState([]);
   const { watchList, deleteCoin } = useContext(WatchListContext);
   const [isLoading, setLoading] = useState(false);
-  console.log(watchList);
 
   useEffect(() => {
     const fetchData = async () => {

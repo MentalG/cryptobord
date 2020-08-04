@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <Link className="header" to={"/"}>
-      <img src={gold} className="logo" />
+      <img src={gold} className="logo" alt="logo"/>
       <span className="text">
         <b>CRYPTOBORD</b>
       </span>

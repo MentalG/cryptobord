@@ -17,11 +17,10 @@ export default function CoinDetailPage() {
           days: "1",
         },
       });
-      console.log(results.data);
       setCoinData(results.data.prices);
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   const renderData = () => {
     return (
@@ -32,6 +31,7 @@ export default function CoinDetailPage() {
             <HistoryChart />
           </div>
           <div className="bottom">
+            {console.log(coinData)}
             <CoinData />
           </div>
         </div>

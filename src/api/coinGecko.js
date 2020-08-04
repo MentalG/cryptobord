@@ -7,8 +7,8 @@ export const fetchAllCoins = async () => {
 
   try {
     res = await fetch("https://api.coingecko.com/api/v3/coins/list");
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    console.log(error);
   }
 
   return res.json();

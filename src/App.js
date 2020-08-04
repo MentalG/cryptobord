@@ -2,9 +2,7 @@ import React from "react";
 import "./App.scss";
 import {
   BrowserRouter as Router,
-  Redirect,
   Route,
-  Switch,
 } from "react-router-dom";
 import CoinDetailPage from "./pages/CoinDetailsPage";
 import DashboardPage from "./pages/DashboardPage";

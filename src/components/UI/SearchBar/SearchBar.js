@@ -1,60 +1,48 @@
-import React, { useState, useEffect } from "react";
-import coinGecko, { fetchAllCoins } from "../../../api/coinGecko";
-import "./SearchBar.scss";
+import React, { useState, useEffect } from 'react';
+import { fetchAllCoins } from '../../../api/coinGecko';
+import './SearchBar.scss';
 
 export default function SearchBar() {
-  const [input, setInput] = useState(null);
-  const [aCoins, setACoins] = useState([]);
-  const [suggestions, setSuggestions] = useState([]);
+  const [allCoins, setAllCoins] = useState([]);
+  const [sortedCoins, setSortedCoins] = useState([]);
 
   const fetchCoins = async () => {
     const response = await fetchAllCoins();
-    setACoins(response);
-    console.log(response);
+    setAllCoins(response);
   };
 
   useEffect(() => {
     fetchCoins();
   }, []);
 
-  const renderSuggestions = () => {
-    if (suggestions != []) {
-      return suggestions.map((x, i) => {
-        return <ul key={i}>{x.name}</ul>;
+  const handleInputChange = (value) => {
+    if (value.length >= 2) {
+      const result = allCoins.filter((coin) => {
+        return coin.symbol.indexOf(value) >= 0
       });
+
+      setSortedCoins(result);
+    } else {
+      setSortedCoins([]);
     }
   };
 
-  const filterSuggestions = () => {
-    let filtered = aCoins.filter((coin) => {
-      return coin.name.startsWith(input);
-    });
-    setSuggestions(filtered);
-  };
-
-  const handleInputChange = (i) => {
-    setInput(i);
-    filterSuggestions();
-  };
-
-  // const filteredSuggestions = aCoins.filter((coin) => {
-  //   return Object.keys(coin).some((k) =>
-  //     coin[k].toLowerCase().includes(input.toLowerCase())
-  //   );
-  // });
-
   return (
-    <div className="search-bar">
-      <div className="outer">
-        <div className="inner">
+    <div className='search-bar'>
+      <div className='outer'>
+        <div className='inner'>
           <input
-            className="input"
-            placeholder="Search to add"
+            className='input'
+            placeholder='Search to add'
             onChange={(e) => {
               handleInputChange(e.target.value);
             }}
           />
-          {renderSuggestions()}
+          <ul style={{ listStyle: 'none' }}>
+            {sortedCoins?.map((item, index) => {
+              return <li key={index}>{item.name}</li>
+            })}
+          </ul>
         </div>
       </div>
     </div>

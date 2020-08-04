@@ -10,9 +10,9 @@ export default function CoinToast({ coin, close }) {
     priceDifferenceP < 0 ? "--decreased" : "--increased"
   }`;
 
-  const handleClose = () => {
-    console.log("Tryna close!");
-  };
+  // const handleClose = () => {
+  //   console.log("Tryna close!");
+  // };
 
   return (
     <Link to={`/coins/${coin.id}`} className="coin-toast">
@@ -33,7 +33,7 @@ export default function CoinToast({ coin, close }) {
           <div className="name">{coin.id}</div>
           <div className="price">{coin.current_price}</div>
           <div className="price-difference">
-            <div className={priceDifferencePClass}>{priceDifferenceP}</div>
+            <div className={priceDifferencePClass}>{priceDifferenceP}%</div>
           </div>
         </div>
       </div>
