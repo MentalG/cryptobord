@@ -1,0 +1,31 @@
+.search-bar {
+  .outer {
+    position: relative;
+    background-color: rgb(232, 236, 253);
+    box-sizing: border-box;
+    z-index: 2;
+    border-radius: 15px;
+    padding: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(232, 236, 253);
+    .inner {
+      .input {
+        font-family: Gilroy;
+        font-weight: 500;
+        appearance: textfield;
+        text-shadow: none;
+        text-transform: none;
+        border-color: transparent;
+        -webkit-writing-mode: horizontal-tb !important;
+        padding-left: 20px;
+        padding-right: 40px;
+        height: 25px;
+        width: 300px;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
